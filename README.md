@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bhadrakshi Saw Mill & Furniture Industry — website
 
-## Getting Started
+Marketing and enquiry site for the saw mill and furniture workshop in Masuriya-2, Dang, Lumbini Province, Nepal.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) + **React 19** + **TypeScript** — every page is statically generated
+- **Tailwind CSS 4** for styling
+- **Three.js** via **React Three Fiber** — the procedural log → boards → chair scene (no model or image downloads)
+- **GSAP ScrollTrigger** — scroll-scrubbed "How a log becomes a chair" section
+- **Motion** (Framer Motion) — reveals, menu, catalogue filter, form states
+- **Lenis** — smooth scrolling
+- **Zod** — server-side validation of the enquiry form
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start   # production
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to edit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+| --- | --- |
+| Business name, address, phone, email, WhatsApp, hours | `src/lib/site.ts` |
+| Products, categories, sizes | `src/lib/products.ts` |
+| Product drawings | `src/components/product-drawing.tsx` |
+| Home page copy | `src/app/page.tsx`, `src/components/home/` |
+| Colours and type | `src/app/globals.css` |
+| Security headers / CSP | `next.config.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Enquiry form
 
-## Learn More
+The form posts to a Server Action (`src/app/contact/actions.ts`) which validates input, rejects bots (honeypot) and rate-limits per IP.
 
-To learn more about Next.js, take a look at the following resources:
+- With `RESEND_API_KEY` and `ENQUIRY_TO_EMAIL` set (see `.env.example`), each enquiry is emailed through [Resend](https://resend.com).
+- Without them, enquiries are appended to `.data/enquiries.jsonl` — fine for local development or a single self-hosted server, but **not** for serverless hosts such as Vercel, where the filesystem is read-only. Set the email variables before deploying there.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before going live
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Replace the placeholder phone, email and opening hours in `src/lib/site.ts`.
+2. Set `NEXT_PUBLIC_SITE_URL` to the real domain.
+3. Configure email delivery for the enquiry form.
+4. Review the product list and wording so it matches what the business actually makes.
