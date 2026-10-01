@@ -15,7 +15,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
   address: {
-    line: "Masuriya-2",
+    line: "masuriya-3",
     district: "Dang",
     province: "Lumbini Province",
     country: "Nepal",

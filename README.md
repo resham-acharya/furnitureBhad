@@ -1,6 +1,6 @@
 # Bhadrakshi Saw Mill & Furniture Industry — website
 
-Marketing and enquiry site for the saw mill and furniture workshop in Masuriya-2, Dang, Lumbini Province, Nepal.
+Marketing and enquiry site for the saw mill and furniture workshop in masuriya-3, Dang, Lumbini Province, Nepal.
 
 ## Stack
 
