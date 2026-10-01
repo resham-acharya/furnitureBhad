@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import { Hero } from "@/components/home/hero";
 import { ProcessSection } from "@/components/home/process-section";
+import { MapEmbed } from "@/components/map-embed";
 import { ProductCard } from "@/components/product-card";
 import { Reveal, RisingLines } from "@/components/reveal";
 import { featuredProducts, products } from "@/lib/products";
@@ -183,7 +184,7 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href={site.mapsUrl}
+                  href={site.directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-ghost-dark"
@@ -238,6 +239,10 @@ export default function Home() {
             </dl>
           </Reveal>
         </div>
+
+        <Reveal className="container-page mt-14 md:mt-20">
+          <MapEmbed />
+        </Reveal>
       </section>
     </>
   );

@@ -40,7 +40,7 @@ The form posts to a Server Action (`src/app/contact/actions.ts`) which validates
 
 ## Before going live
 
-1. Replace the placeholder phone, email and opening hours in `src/lib/site.ts`.
+1. Confirm the opening hours in `src/lib/site.ts` (still placeholders).
 2. Set `NEXT_PUBLIC_SITE_URL` to the real domain.
 3. Configure email delivery for the enquiry form.
 4. Review the product list and wording so it matches what the business actually makes.

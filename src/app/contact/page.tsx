@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { MapPin, MessageCircle, Phone } from "lucide-react";
 import { EnquiryForm, EnquiryFormFromUrl } from "@/components/enquiry-form";
+import { MapEmbed } from "@/components/map-embed";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { fullAddress, site, telHref } from "@/lib/site";
@@ -90,7 +91,7 @@ export default function ContactPage() {
                   </a>
                 )}
                 <a
-                  href={site.mapsUrl}
+                  href={site.directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-ghost-dark"
@@ -101,6 +102,15 @@ export default function ContactPage() {
               </div>
             </aside>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-24">
+        <div className="container-page">
+          <h2 className="display text-4xl md:text-5xl">Find the yard</h2>
+          <div className="mt-8">
+            <MapEmbed />
+          </div>
         </div>
       </section>
     </>

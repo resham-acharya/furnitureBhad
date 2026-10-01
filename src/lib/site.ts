@@ -1,6 +1,11 @@
 // Single source of truth for business details. Edit here and the whole site
 // (header, footer, contact page, SEO metadata, structured data) updates.
 
+// Resolves to the business's own Google Maps listing.
+const mapsQuery = encodeURIComponent(
+  "Bhadrakshi Saw Mill And Furniture Industry, Lalmatiya, Lumbini Province",
+);
+
 export const site = {
   name: "Bhadrakshi Saw Mill & Furniture Industry",
   shortName: "Bhadrakshi",
@@ -17,20 +22,22 @@ export const site = {
     countryCode: "NP",
   },
 
-  // TODO: replace these placeholders with the real contact details.
-  phone: "+977 98XX-XXXXXX",
-  email: "info@example.com",
+  phone: "+977 981-0826294",
+  email: "bhadrakshifurniture@gmail.com",
   // WhatsApp number in international format, digits only (e.g. "97798XXXXXXXX").
   // Leave empty to hide the WhatsApp button.
   whatsapp: "" as string,
+  // TODO: confirm opening hours — these are placeholders.
   hours: [
     { days: "Sunday – Friday", time: "8:00 am – 6:00 pm" },
     { days: "Saturday", time: "Closed" },
   ],
 
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent("Masuriya, Dang, Lumbini Province, Nepal"),
+  // Google Maps plus code for the yard.
+  plusCode: "RPV3+7P Lalmatiya",
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`,
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${mapsQuery}`,
+  mapEmbedUrl: `https://www.google.com/maps?q=${mapsQuery}&z=15&output=embed`,
 } as const;
 
 export const fullAddress = `${site.address.line}, ${site.address.district}, ${site.address.province}, ${site.address.country}`;

@@ -74,6 +74,7 @@ const businessJsonLd = {
     addressCountry: site.address.countryCode,
   },
   areaServed: `${site.address.district}, ${site.address.province}`,
+  hasMap: site.mapsUrl,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

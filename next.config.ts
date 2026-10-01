@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === "development";
 
 // Pages are statically generated for speed, so the CSP is header-based (no
-// per-request nonce). Everything is same-origin: no third-party scripts,
-// fonts, or frames are allowed.
+// per-request nonce). Everything is same-origin except the Google Maps
+// embed, which is the only frame allowed.
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
@@ -13,6 +13,7 @@ const csp = [
   "font-src 'self' data:",
   `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "worker-src 'self' blob:",
+  "frame-src https://www.google.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
