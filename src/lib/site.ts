@@ -15,22 +15,21 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 
   address: {
-    line: "masuriya-3",
+    line: "Masuriya-3",
     district: "Dang",
     province: "Lumbini Province",
     country: "Nepal",
     countryCode: "NP",
   },
 
-  phone: "+977 981-0826294",
+  phone: "+977 976-8271210",
   email: "bhadrakshifurniture@gmail.com",
   // WhatsApp number in international format, digits only (e.g. "97798XXXXXXXX").
   // Leave empty to hide the WhatsApp button.
   whatsapp: "" as string,
   // TODO: confirm opening hours — these are placeholders.
   hours: [
-    { days: "Sunday – Friday", time: "8:00 am – 6:00 pm" },
-    { days: "Saturday", time: "Closed" },
+    { days: "Every Week", time: "7:00 am – 10:00 pm" },
   ],
 
   // Google Maps plus code for the yard.
